@@ -16,10 +16,12 @@ Forked on 2026-11-18. Upstream commit at fork time: `1bef2b4` ("Made to work on 
    "Follow me" buttons pointed at the original author's repo and Instagram.
    Their defaults are now empty (`studio/config.py`), so the buttons simply
    don't appear until `PEAKCUT_REPO_URL` / `PEAKCUT_FOLLOW_URL` are set to ours.
-3. **Caption timing fix (2026-11-18).** On the owner's clips the captions ran
-   a steady 0.6–1.0 s behind the voice, whatever the source length.
-   `CAPTION_LEAD` in `studio/render.py` is now 0.8, so captions render 0.8 s
-   earlier. Fine-tune that one number if clips come out early or still late.
+3. **Caption timing — kept at upstream.** `CAPTION_LEAD` in `studio/render.py`
+   was briefly set to 0.8 (captions looked late on the owner's clips), but that
+   made the highlighted word's pop animation fire before the word is spoken.
+   Reverted to the upstream 0.0 on 2026-11-18 at the owner's direction; the
+   whole caption path (transcribe, media, render) is byte-identical to
+   upstream apart from the product name.
 
 ## Rebrand: FlowClip (2026-11-18)
 
