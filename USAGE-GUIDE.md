@@ -13,9 +13,27 @@ a stranger would keep watching. A weak model picks weak moments.
 - **Settings → AI**, choose a provider, paste the key, press **Find models**,
   pick the model, then **Save and test**.
 - Good defaults: **Gemini 2.5 Flash** (fast, cheap, strong at this), or
-  **Groq — llama-3.3-70b-versatile** (very fast). Claude / GPT-class models also
+  **Groq — openai/gpt-oss-120b**. Claude / GPT-class models also
   work well. Avoid the smallest "mini/nano" models for scouting if you can —
   they miss context and jokes.
+- **Only pick a model the Find models list actually shows.** A name from a
+  tutorial can be retired or unavailable on your account even when it appears
+  in a list — Groq's old **llama-3.3-70b-versatile** was shut down for free
+  accounts on 16 August 2026, so do not use it. If a model fails the test,
+  pick another one from the list instead of retyping the same name.
+- **If Gemini says the key hit its limit:** the free tier allows roughly
+  10 requests a minute, and one video makes dozens of scout calls (one per
+  transcript chunk, plus one per clip), so a single video can trip the
+  per-minute limit even though you generated almost nothing. Wait a minute
+  and retry, or switch provider for the day — the daily limit resets at
+  midnight Pacific time.
+- **Free fallback that works today — OpenRouter:** provider **OpenRouter**,
+  key from openrouter.ai/keys, model **nvidia/nemotron-3-ultra-550b-a55b:free**
+  (or the **openrouter/free** router, which picks a working free model for
+  you). Free models allow 20 requests a minute and 50 a day; buying $10 of
+  credits once raises the daily cap to 1,000, and free models do not consume
+  those credits. Expect about one short video per day on the 50-a-day cap,
+  because one video makes dozens of calls.
 - **No key at all** still works, but clips are then picked by *loudness only*
   (score fixed at 50, hook "WAIT FOR IT"). Fine for a test, not for results.
 - A local model via **Ollama** costs nothing but scouts noticeably worse and
@@ -134,7 +152,8 @@ Each creator/workspace has its own settings. The defaults are sane:
 
 ## 10. Quick recipe — best results, minimal effort
 
-1. Gemini 2.5 Flash (or Groq 70B) key in Settings → AI.
+1. Gemini 2.5 Flash (or Groq gpt-oss-120b, or an OpenRouter :free model — see §1)
+   key in Settings → AI.
 2. One workspace per creator, right game selected for gamers.
 3. Feed it clear-speech videos or go live with the session running from the
    start of the stream.

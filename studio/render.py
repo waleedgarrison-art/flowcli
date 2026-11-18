@@ -69,7 +69,7 @@ class _Font:
         return ((self.asc - self.desc) / 2 - self.cap / 2) * size / (self.asc + self.desc)
 
 
-CAPTION_LEAD = 0.0  # measured: word stamps are within 0.15 s of the voice, so no shift is needed
+CAPTION_LEAD = 0.8  # fork fix: word stamps lagged the voice ~0.6-1.0 s on the owner's clips, so captions render 0.8 s earlier
 def install_fonts():
     """Copy the bundled caption fonts next to the data, so captions look the same on every machine and server."""
     src = Path(__file__).resolve().parent / "fonts"
